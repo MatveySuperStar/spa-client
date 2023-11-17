@@ -25,15 +25,23 @@ const index = ({ posts }) => {
 };
 
 export const getStaticProps = async () => {
-  const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${process.env.API_URL}`;
-  const data = await fetch(url);
-  const value = await data.json();
+  try {
+    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${process.env.TOKEN_INSTAGRAM}`;
+    const data = await fetch(url);
+    const value = await data.json();
 
-  return {
-    props: {
-      posts: value,
-    },
-  };
+    return {
+      props: {
+        posts: value,
+      },
+    };
+  } catch {
+    return {
+      props: {
+        posts: [],
+      },
+    };
+  }
 };
 
 export default index;
