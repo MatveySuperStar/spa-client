@@ -41,31 +41,35 @@ const WrapperModal = ({ children }) => {
 
   const clickHandler = useCallback(
     async (e) => {
-      e.preventDefault();
+      try {
+        e.preventDefault();
 
-      if (checkValidate("name") && checkValidate("phone") && user.check) {
-        const data = await sendMessageEmail({
-          phone: user.phone,
-          name: user.name,
-        });
+        if (checkValidate("name") && checkValidate("phone") && user.check) {
+          const data = await sendMessageEmail({
+            phone: user.phone,
+            name: user.name,
+          });
 
-        if (!!data?.errors) {
-          data?.errors?.errors?.map((item) => alert(item.msg));
+          if (!!data.errors) {
+            data?.errors?.errors?.map((item) => alert(item.msg));
+          } else {
+            setUser(defaultUser);
+            setErrors({
+              name: !checkValidate("name"),
+              phone: !checkValidate("phone"),
+              check: !user.check,
+            });
+            alert("сообщение отправлено");
+          }
         } else {
-          setUser(defaultUser);
           setErrors({
             name: !checkValidate("name"),
             phone: !checkValidate("phone"),
             check: !user.check,
           });
-          alert("сообщение отправлено");
         }
-      } else {
-        setErrors({
-          name: !checkValidate("name"),
-          phone: !checkValidate("phone"),
-          check: !user.check,
-        });
+      } catch (e) {
+        console.log(e);
       }
     },
     [user, sendMessageEmail, setErrors, checkValidate]
