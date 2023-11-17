@@ -1,0 +1,219 @@
+.wrapperSlider {
+  margin-top: 101px;
+  display: flex;
+  justify-content: center;
+  .slider {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 100% auto;
+    gap: 40px;
+    width: 860px;
+    height: 372px;
+
+    .wrapperContent {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      height: 375px;
+      padding: 4px;
+
+      .content {
+        transition: all;
+        display: grid;
+        gap: 15px;
+        transition: margin-top 2s ease;
+
+        .slide {
+          padding: 13px 0px 10px 33px;
+          box-shadow: 0px 4px 4px 4px #00000040;
+
+          & > div {
+            display: flex;
+
+            gap: 98px;
+
+            h1 {
+              font-family: "Nunito";
+              color: #a4a4a4;
+
+              font-size: 250px;
+              font-weight: 900;
+              line-height: 221px;
+              letter-spacing: 0em;
+              text-align: left;
+            }
+
+            div {
+              display: flex;
+              flex-direction: column;
+              gap: 28px;
+              padding-top: 19px;
+
+              .title {
+                font-family: "Nunito";
+                font-size: 26px;
+                font-weight: 500;
+                line-height: 35px;
+                letter-spacing: 0em;
+                text-align: left;
+              }
+
+              .description {
+                font-family: "Nunito";
+                font-size: 17px;
+                font-weight: 500;
+                line-height: 23px;
+                letter-spacing: 0em;
+                text-align: left;
+              }
+            }
+          }
+
+          h2 {
+            font-family: "Nunito";
+            color: #a4a4a4;
+            font-size: 128px;
+            font-weight: 900;
+            line-height: 128px;
+            letter-spacing: 0em;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    .pagination {
+      display: grid;
+      gap: 14px;
+
+      .circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        background-color: #d9d9d9;
+        cursor: pointer;
+        transition: 0.5s;
+
+        &:hover,
+        &.active {
+          transition: 0.5s;
+          background-color: #000000;
+        }
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      width: 320;
+      gap: 15px;
+      display: flex;
+      flex-direction: column;
+
+      .wrapperContent > .content {
+        gap: 86px;
+      }
+
+      .wrapperContent > .content > .slide {
+        & > div {
+          gap: 20px;
+
+          h1 {
+            font-size: 150px;
+
+            line-height: 150px;
+          }
+          div {
+            gap: 10px;
+            .title {
+              font-size: 17px;
+            }
+
+            .description {
+              font-size: 13px;
+            }
+          }
+        }
+        h2 {
+          font-size: 50px;
+        }
+      }
+
+      .pagination {
+        gap: 20px;
+        display: flex;
+
+        .circle {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      width: 390px;
+
+      .wrapperContent > .content > .slide {
+        height: 349px;
+        & > div {
+          gap: 20px;
+
+          h1 {
+            font-size: 150px;
+
+            line-height: 150px;
+          }
+          div {
+            gap: 10px;
+            .title {
+              font-size: 17px;
+            }
+
+            .description {
+              font-size: 13px;
+            }
+          }
+        }
+        h2 {
+          font-size: 50px;
+        }
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+      width: 600px;
+
+      .wrapperContent > .content > .slide {
+        & > div {
+          gap: 30px;
+          h1 {
+            font-size: 200px;
+          }
+          div {
+            .title {
+              font-size: 30px;
+            }
+          }
+        }
+        h2 {
+          font-size: 100px;
+        }
+      }
+    }
+
+    @media (min-width: 576px) and (max-width: 992px) {
+      gap: 20px;
+
+      .pagination {
+        gap: 20px;
+
+        .circle {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+      gap: 35px;
+    }
+  }
+}

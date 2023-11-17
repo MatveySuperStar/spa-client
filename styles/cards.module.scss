@@ -1,0 +1,78 @@
+.wrapperCards {
+  margin: 136px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    font-family: Nunito;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 71px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 288px * 4;
+    width: 100%;
+    justify-content: center;
+
+    .card {
+      width: 288px;
+      height: 288px;
+      background-color: black;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      img {
+        position: absolute;
+        width: auto;
+        height: 288px;
+        transition: 0.5s;
+      }
+
+      .advice {
+        opacity: 0;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: black, $alpha: 0.5);
+        transition: 0.5s;
+        z-index: 3;
+        justify-content: center;
+
+        p {
+          color: white;
+          font-family: "Quicksand";
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 15px;
+          letter-spacing: 0em;
+          text-align: center;
+        }
+      }
+
+      &:hover {
+        img {
+          height: 320px;
+          transition: 0.5s;
+        }
+        .advice {
+          opacity: 1;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}
